@@ -61,7 +61,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;Winmm.lib;xaudio2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)Asteroids.exe</OutputFile>
       <AdditionalLibraryDirectories>../../lib;../Game Engine/Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -104,7 +104,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\SRC\Asteroid.cpp" />
-    <ClCompile Include="..\..\src\Asteroids.cpp" />
+    <ClCompile Include="..\..\src\Asteroids.cpp">
+      <AdditionalModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalModuleDependencies>
+    </ClCompile>
     <ClCompile Include="..\..\src\Bullet.cpp" />
     <ClCompile Include="..\..\SRC\Explosion.cpp" />
     <ClCompile Include="..\..\SRC\ExtendedMag.cpp" />
